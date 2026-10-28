@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rock, Paper, Scissors | The Evil AI's Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="game-rps">
+  <header class="bar">
+    <a class="back" href="../index.html">
+      
+    </a>
+    <span class="bar-title">Evil AI </span>
+  </header>
+
+  <div class="band">
+    <div class="band-inner">
+      <div>
+        <h1>Rock, Paper, Scissors</h1>
+        <p class="lede">
+          Click a weapon. First to <span class="goal">5</span> points keeps the
+          world safe. Draws score nothing.
+        </p>
+      </div>
+      <div class="band-art" aria-hidden="true">
+        <i class="ph-bold ph-hand-fist"></i>
+        <i class="ph-bold ph-hand-palm"></i>
+        <i class="ph-bold ph-hand-peace"></i>
+      </div>
+    </div>
+  </div>
+
+  <main class="arena">
+    <section aria-labelledby="pick-title">
+      <div class="scoreboard" role="group" aria-label="Score">
+        <div class="side side-you">
+          <span class="side-name">You</span>
+          <span class="side-score" id="player-score">0</span>
+          <span class="pips" id="player-pips" aria-hidden="true"></span>
+        </div>
+        <div class="side side-ai">
+          <span class="side-name">Evil AI</span>
+          <span class="side-score" id="computer-score">0</span>
+          <span class="pips" id="computer-pips" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <h2 class="pick-title" id="pick-title">Choose your weapon</h2>
+      <div class="picks" id="picks">
+        <button type="button" class="pick" data-choice="Rock">
+          <i class="ph-bold ph-hand-fist" aria-hidden="true"></i> Rock
+        </button>
+        <button type="button" class="pick" data-choice="Paper">
+          <i class="ph-bold ph-hand-palm" aria-hidden="true"></i> Paper
+        </button>
+        <button type="button" class="pick" data-choice="Scissors">
+          <i class="ph-bold ph-hand-peace" aria-hidden="true"></i> Scissors
+        </button>
+      </div>
+
+      <div id="results" aria-live="polite">
+        <p class="verdict" id="round-message">Pick a weapon to begin. I’m waiting.</p>
+        <p class="outcome" id="winner"></p>
+      </div>
+
+      <div class="key-slot">
+        <button type="button" class="key-start" id="reset" hidden>
+          Play again <i class="ph-bold ph-arrow-counter-clockwise" aria-hidden="true"></i>
+        </button>
+      </div>
+    </section>
+
+    <aside>
+      <section class="page" aria-labelledby="rules-title">
+        <h2 id="rules-title">House rules</h2>
+        <dl class="facts">
+          <div>
+            <dt>Win a round</dt>
+            <dd>Rock beats Scissors, Scissors beats Paper, Paper beats Rock.</dd>
+          </div>
+          <div>
+            <dt>Win the game</dt>
+            <dd>Be first to <span class="goal">5</span> points.</dd>
+          </div>
+          <div>
+            <dt>Draws</dt>
+            <dd>Nobody scores. Play again.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="page" aria-labelledby="log-title">
+        <h2 id="log-title">Battle log</h2>
+        <ul id="history" class="log"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
